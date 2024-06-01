@@ -39,7 +39,7 @@ async function sendTweet(): Promise<void> {
   clearInterval(buttonTimer);
   const data = tweetData.value[selectedRunId.value];
 
-  if (!data.content) {
+  if (!data || !data.content) {
     nodecg().log.warn(`Skipping tweet for "${data.game}, ${data.category}" due to missing content`);
     return;
   }
@@ -104,8 +104,13 @@ function startCountdown(): void {
 
   buttonTimer = setInterval(() => {
     time -= 1;
-    countdownTimer.value.countdown = time;
+    countdownTimer.value = {
+      ...countdownTimer.value,
+      countdownActive: true,
+      countdown: time,
+    };
     if (time <= 0) {
+      clearInterval(buttonTimer);
       sendTweet();
     }
   }, 1000);
@@ -132,7 +137,9 @@ type CSVData = {
 
 async function importCSV(val: string, ack: NodeCGTypes.Acknowledgement | undefined): Promise<void> {
   const { data } = Papa.parse<string[]>(val);
-  const tmpData: TweetData = {};
+  const tmpData: TweetData = {
+    ...tweetData.value,
+  };
 
   try {
     // we start at 1 to skip the header row
@@ -148,13 +155,17 @@ async function importCSV(val: string, ack: NodeCGTypes.Acknowledgement | undefin
       const split = row[5].split('/');
       const mediaName = split[split.length - 1];
 
-      tmpData[row[0]] = {
-        game: row[1],
-        category: row[2],
-        content: row[4], // index 3 is runner names
-        media: mediaName || null,
-      };
+      if (row[0]) {
+        tmpData[row[0]] = {
+          game: row[1],
+          category: row[2],
+          content: row[4], // index 3 is runner names
+          media: mediaName || null,
+        };
+      }
     }
+
+    console.log(tmpData);
 
     tweetData.value = tmpData;
 
@@ -216,6 +227,8 @@ function syncArrays(runArray: RunData[]): void {
       updatedData[run.id] = currentData[run.id];
     }
   });
+
+  console.log(updatedData);
 
   tweetData.value = updatedData;
 }

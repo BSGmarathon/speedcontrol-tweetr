@@ -1,0 +1,102 @@
+{
+  "VBtn.css": {
+    "file": "assets/VBtn-a09512b1.css",
+    "src": "VBtn.css"
+  },
+  "VTextarea.css": {
+    "file": "assets/VTextarea-9e6665cc.css",
+    "src": "VTextarea.css"
+  },
+  "_VBtn-31669877.js": {
+    "css": [
+      "assets/VBtn-a09512b1.css"
+    ],
+    "file": "assets/VBtn-31669877.js",
+    "imports": [
+      "_router-31cdaec9.js"
+    ]
+  },
+  "_VTextarea-37bdc4f7.js": {
+    "css": [
+      "assets/VTextarea-9e6665cc.css"
+    ],
+    "file": "assets/VTextarea-37bdc4f7.js",
+    "imports": [
+      "_router-31cdaec9.js"
+    ]
+  },
+  "_router-31cdaec9.js": {
+    "assets": [
+      "assets/materialdesignicons-webfont-67d24abe.eot",
+      "assets/materialdesignicons-webfont-c1c004a9.woff2",
+      "assets/materialdesignicons-webfont-80bb28b3.woff",
+      "assets/materialdesignicons-webfont-a58ecb54.ttf"
+    ],
+    "css": [
+      "assets/router-dc3ef2b6.css"
+    ],
+    "file": "assets/router-31cdaec9.js"
+  },
+  "node_modules/@mdi/font/fonts/materialdesignicons-webfont.eot": {
+    "file": "assets/materialdesignicons-webfont-67d24abe.eot",
+    "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.eot"
+  },
+  "node_modules/@mdi/font/fonts/materialdesignicons-webfont.ttf": {
+    "file": "assets/materialdesignicons-webfont-a58ecb54.ttf",
+    "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.ttf"
+  },
+  "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff": {
+    "file": "assets/materialdesignicons-webfont-80bb28b3.woff",
+    "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff"
+  },
+  "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff2": {
+    "file": "assets/materialdesignicons-webfont-c1c004a9.woff2",
+    "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff2"
+  },
+  "router.css": {
+    "file": "assets/router-dc3ef2b6.css",
+    "src": "router.css"
+  },
+  "src/dashboard/editTweet.ts": {
+    "file": "assets/editTweet-79aa3541.js",
+    "imports": [
+      "_router-31cdaec9.js",
+      "_VTextarea-37bdc4f7.js"
+    ],
+    "isEntry": true,
+    "src": "src/dashboard/editTweet.ts"
+  },
+  "src/dashboard/settings.css": {
+    "file": "assets/settings-6384c235.css",
+    "src": "src/dashboard/settings.css"
+  },
+  "src/dashboard/settings.ts": {
+    "css": [
+      "assets/settings-6384c235.css"
+    ],
+    "file": "assets/settings-dd82069f.js",
+    "imports": [
+      "_router-31cdaec9.js",
+      "_VBtn-31669877.js"
+    ],
+    "isEntry": true,
+    "src": "src/dashboard/settings.ts"
+  },
+  "src/dashboard/tweetr.css": {
+    "file": "assets/tweetr-37f80755.css",
+    "src": "src/dashboard/tweetr.css"
+  },
+  "src/dashboard/tweetr.ts": {
+    "css": [
+      "assets/tweetr-37f80755.css"
+    ],
+    "file": "assets/tweetr-207befc1.js",
+    "imports": [
+      "_router-31cdaec9.js",
+      "_VBtn-31669877.js",
+      "_VTextarea-37bdc4f7.js"
+    ],
+    "isEntry": true,
+    "src": "src/dashboard/tweetr.ts"
+  }
+}

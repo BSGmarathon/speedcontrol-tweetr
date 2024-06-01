@@ -1,0 +1,38 @@
+<!DOCTYPE html><html lang="en"><head>
+	<meta charset="utf-8">
+	<style>
+		body {
+			/* Force body background to original NodeCG colour. */
+			background-color: #2F3A4F !important;
+
+			/* Force body to have original NodeCG padding. */
+			margin: 15px !important;
+
+			/* Unset widths. */
+			width: unset !important;
+			min-width: unset !important;
+			min-height: unset !important;
+		}
+
+		/* So the <v-app> always has a transparent background,
+		otherwise it looks odd in the NodeCG dashboard panels. */
+		.v-application {
+			background-color: transparent !important;
+		}
+
+		/* So the <v-app> doesn't take up 100% height which breaks
+		in the NodeCG dashboard panels anyway. */
+		.v-application__wrap {
+			min-height: 0 !important;
+		}
+	</style>
+<link rel="stylesheet" href="/bundles/speedcontrol-tweetr/shared/dist/assets/tweetr-37f80755.css">
+<link rel="stylesheet" href="/bundles/speedcontrol-tweetr/shared/dist/assets/router-dc3ef2b6.css">
+<link rel="stylesheet" href="/bundles/speedcontrol-tweetr/shared/dist/assets/VBtn-a09512b1.css">
+<link rel="stylesheet" href="/bundles/speedcontrol-tweetr/shared/dist/assets/VTextarea-9e6665cc.css">
+<script type="module" src="/bundles/speedcontrol-tweetr/shared/dist/assets/tweetr-207befc1.js"></script></head>
+<body>
+<div id="app"></div>
+
+
+</body></html>
