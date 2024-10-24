@@ -17,12 +17,15 @@ import TwitterApiClient from '@tweetr/twitter/TwitterApiClient';
 import DummyTwitterClient from '@tweetr/twitter/DummyTwitterClient';
 import type NodeCGTypes from '@nodecg/types';
 import Papa from 'papaparse';
+import BlueskyApiClient, { BlueskyImageData } from '@tweetr/bluesky/BlueskyApiClient';
 
 let buttonTimer: NodeJS.Timeout | undefined;
 
 const config = nodecg().bundleConfig;
 const twitterClient: ITwitterClient<string> = config.useDummyTwitterClient
   ? new DummyTwitterClient() : new TwitterApiClient(config);
+const blueskyClient: ITwitterClient<BlueskyImageData> = config.useDummyTwitterClient
+  ? new DummyTwitterClient() : new BlueskyApiClient(config);
 
 setTimeout(() => {
   clearInterval(buttonTimer);
@@ -63,16 +66,23 @@ async function sendTweet(): Promise<void> {
 
   try {
     let twitterImageData: TweetOptions<string> | undefined;
+    let bussyImageData: TweetOptions<BlueskyImageData> | undefined;
 
     if (data.media && data.media !== 'None') {
+      const mediaPath = getMediaPath(data.media);
       const mediaId = await twitterClient
-        .uploadMedia(`./assets/speedcontrol-tweetr/media/${data.media}`);
+        .uploadMedia(mediaPath);
+      const blueskyImageData = await blueskyClient.uploadMedia(mediaPath);
 
       twitterImageData = {
         imageData: mediaId,
       };
+      bussyImageData = {
+        imageData: blueskyImageData,
+      };
     }
 
+    await blueskyClient.tweet(data.content, bussyImageData);
     await twitterClient.tweet(data.content, twitterImageData);
 
     countdownTimer.value = {

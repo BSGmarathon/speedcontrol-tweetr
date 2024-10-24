@@ -1,8 +1,6 @@
 # speedcontrol-tweetr
 Control Twitter right from your NodeCG dashboard!
 
-[![Release](https://img.shields.io/github/v/release/bsgmarathon/speedcontrol-tweetr?label=Release)](https://github.com/bsgmarathon/speedcontrol-tweetr/releases)
-![Downloads](https://img.shields.io/github/downloads/bsgmarathon/speedcontrol-tweetr/total?label=Downloads)
 ![License](https://img.shields.io/github/license/bsgmarathon/speedcontrol-tweetr?label=License)
 [![Twitter](https://img.shields.io/twitter/follow/bsgmarathon?style=social)](https://twitter.com/bsgmarathon)
 [![Discord](https://img.shields.io/badge/-Join%20the%20Discord!-brightgreen?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://bsgmarathon.com/discord)

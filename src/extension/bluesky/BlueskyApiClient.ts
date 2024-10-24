@@ -2,9 +2,11 @@ import ITwitterClient, { TweetOptions } from '@tweetr/base/ITwitterClient';
 import axios from 'axios';
 import { Configschema } from '@tweetr/types/schemas';
 import { readFile, stat } from 'fs/promises';
+import { get as nodecg } from '@tweetr/util/nodecg';
 
 export interface BlueskySession {
   accessJwt: string;
+  refreshJwt: string;
   did: string;
 }
 
@@ -39,6 +41,18 @@ export default class BlueskyApiClient implements ITwitterClient<BlueskyImageData
   constructor(
     private config: Configschema,
   ) {
+    this.login().then((loginSes) => {
+      this.session = loginSes;
+
+      // Refresh every 30 mins
+      setInterval(async () => {
+        try {
+          this.session = await this.refreshToken();
+        } catch (e: unknown) {
+          nodecg().log.error('Error refreshing Bluesky token:', e);
+        }
+      }, 30 * 60 * 1000);
+    });
   }
 
   async tweet(text: string, params: TweetOptions<BlueskyImageData> | undefined): Promise<void> {
@@ -65,7 +79,7 @@ export default class BlueskyApiClient implements ITwitterClient<BlueskyImageData
       },
     });
 
-    console.log(data);
+    nodecg().log.debug('Post create response', data);
   }
 
   async uploadMedia(file: string): Promise<BlueskyImageData> {
@@ -92,7 +106,7 @@ export default class BlueskyApiClient implements ITwitterClient<BlueskyImageData
       },
     );
 
-    console.log(data);
+    nodecg().log.debug('Image upload response', data);
 
     return {
       $type: 'app.bsky.embed.images',
@@ -107,6 +121,10 @@ export default class BlueskyApiClient implements ITwitterClient<BlueskyImageData
 
   private get accessToken(): string {
     return `Bearer ${this.session?.accessJwt ?? ''}`;
+  }
+
+  private get refreshHeader(): string {
+    return `Bearer ${this.session?.refreshJwt ?? ''}`;
   }
 
   private guessContentType(fileName: string): string {
@@ -133,6 +151,18 @@ export default class BlueskyApiClient implements ITwitterClient<BlueskyImageData
     const { data } = await this.bussyClient.post<BlueskySession>('/xrpc/com.atproto.server.createSession', {
       identifier: this.config.bluesky.identifier,
       password: this.config.bluesky.password,
+    });
+
+    console.log(data);
+
+    return data;
+  }
+
+  private async refreshToken(): Promise<BlueskySession> {
+    const { data } = await this.bussyClient.post<BlueskySession>('/xrpc/com.atproto.server.refreshSession', null, {
+      headers: {
+        Authorization: this.refreshHeader,
+      },
     });
 
     console.log(data);
