@@ -82,7 +82,8 @@ async function sendTweet(): Promise<void> {
       };
     }
 
-    const content = `Automated production test: ${Date.now()}, please ignore.\n${data.content}`;
+    // const content = `Automated production test: ${Date.now()}, please ignore.\n${data.content}`;
+    const { content } = data;
 
     await blueskyClient.tweet(content, bussyImageData);
     await twitterClient.tweet(content, twitterImageData);

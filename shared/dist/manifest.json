@@ -1,0 +1,102 @@
+{
+  "VBtn.css": {
+    "file": "assets/VBtn-7177c11e.css",
+    "src": "VBtn.css"
+  },
+  "VTextField.css": {
+    "file": "assets/VTextField-cb4134cf.css",
+    "src": "VTextField.css"
+  },
+  "VTextarea.css": {
+    "file": "assets/VTextarea-70a21927.css",
+    "src": "VTextarea.css"
+  },
+  "_VBtn-1e053d72.js": {
+    "css": [
+      "assets/VBtn-7177c11e.css"
+    ],
+    "file": "assets/VBtn-1e053d72.js",
+    "imports": [
+      "_VTextField-817dad61.js"
+    ]
+  },
+  "_VTextField-817dad61.js": {
+    "assets": [
+      "assets/materialdesignicons-webfont-0b183104.eot",
+      "assets/materialdesignicons-webfont-662fefa8.woff2",
+      "assets/materialdesignicons-webfont-a5928a0d.woff",
+      "assets/materialdesignicons-webfont-61e8aba5.ttf"
+    ],
+    "css": [
+      "assets/VTextField-cb4134cf.css"
+    ],
+    "file": "assets/VTextField-817dad61.js"
+  },
+  "_VTextarea-e1892cba.js": {
+    "css": [
+      "assets/VTextarea-70a21927.css"
+    ],
+    "file": "assets/VTextarea-e1892cba.js",
+    "imports": [
+      "_VTextField-817dad61.js"
+    ]
+  },
+  "node_modules/@mdi/font/fonts/materialdesignicons-webfont.eot": {
+    "file": "assets/materialdesignicons-webfont-0b183104.eot",
+    "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.eot"
+  },
+  "node_modules/@mdi/font/fonts/materialdesignicons-webfont.ttf": {
+    "file": "assets/materialdesignicons-webfont-61e8aba5.ttf",
+    "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.ttf"
+  },
+  "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff": {
+    "file": "assets/materialdesignicons-webfont-a5928a0d.woff",
+    "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff"
+  },
+  "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff2": {
+    "file": "assets/materialdesignicons-webfont-662fefa8.woff2",
+    "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff2"
+  },
+  "src/dashboard/editTweet.ts": {
+    "file": "assets/editTweet-d0fd458d.js",
+    "imports": [
+      "_VTextField-817dad61.js",
+      "_VTextarea-e1892cba.js"
+    ],
+    "isEntry": true,
+    "src": "src/dashboard/editTweet.ts"
+  },
+  "src/dashboard/settings.css": {
+    "file": "assets/settings-6384c235.css",
+    "src": "src/dashboard/settings.css"
+  },
+  "src/dashboard/settings.ts": {
+    "css": [
+      "assets/settings-6384c235.css"
+    ],
+    "file": "assets/settings-59a2806b.js",
+    "imports": [
+      "_VTextField-817dad61.js",
+      "_VBtn-1e053d72.js"
+    ],
+    "isEntry": true,
+    "src": "src/dashboard/settings.ts"
+  },
+  "src/dashboard/tweetr.css": {
+    "file": "assets/tweetr-58f30f37.css",
+    "src": "src/dashboard/tweetr.css"
+  },
+  "src/dashboard/tweetr.ts": {
+    "css": [
+      "assets/tweetr-58f30f37.css"
+    ],
+    "file": "assets/tweetr-dadebff1.js",
+    "imports": [
+      "_VTextField-817dad61.js",
+      "_VBtn-1e053d72.js",
+      "_VTextarea-e1892cba.js"
+    ],
+    "isEntry": true,
+    "src": "src/dashboard/tweetr.ts"
+  }
+}
